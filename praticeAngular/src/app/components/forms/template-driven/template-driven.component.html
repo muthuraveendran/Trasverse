@@ -1,0 +1,48 @@
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" >
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" name="firstName" class="form-control " [(ngModel)]="user.firstName"
+        [ngClass]="{'is-invalid': userFirstName.errors && userFirstName.touched }"
+        #userFirstName="ngModel"
+        required
+        minlength="2">
+        <div [hidden]="!userFirstName.errors?.required" class="invalid-feedback">
+            First Name is Required
+        </div>
+        <div [hidden]="!userFirstName.errors?.minlength" class="invalid-feedback">
+            minimum length is 2 characters!
+        </div>
+    </div>
+ 
+    {{user.firstName}}
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" name="lastName" class="form-control" [(ngModel)]="user.lastName">
+    </div>
+    <div class="form-group">
+        <label>Age</label>
+        <input type="number" name="age" class="form-control" [(ngModel)]="user.age">
+    </div>
+    <div class="form-group">
+        <label>Balance</label>
+        <input type="number" name="balance" class="form-control" [(ngModel)]="user.balance">
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" name="email" class="form-control" 
+        [(ngModel)]="user.email"
+        [ngClass]="{'is-invalid': userEmail.errors && userEmail.touched }"
+        #userEmail="ngModel"
+        required 
+        pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+        >
+        <div [hidden]="!userEmail.errors?.required" class="invalid-feedback">
+            Email is Required
+        </div>
+        <div [hidden]="!userEmail.errors?.pattern" class="invalid-feedback">
+            Invalid Email
+        </div>
+    </div>
+<button 
+class="btn btn-success" >Add New User</button> 
+</form>
