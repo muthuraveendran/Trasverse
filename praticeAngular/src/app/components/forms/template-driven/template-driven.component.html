@@ -43,6 +43,6 @@
             Invalid Email
         </div>
     </div>
-<button 
+<button [disabled]="!userForm.form.valid"
 class="btn btn-success" >Add New User</button> 
 </form>

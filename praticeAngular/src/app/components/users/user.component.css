@@ -1,3 +1,19 @@
- p { 
-     color: green
-    }
+.container {
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+    width: 300px;
+}
+
+#successbtn {
+    position: relative;
+    top:10px;
+    margin-left: 90px;
+    /* margin-top: 50px; */
+}
+
+.data-enter{
+    position: relative;
+    top:20px;  
+    margin-left: 90px;
+}

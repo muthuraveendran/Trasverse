@@ -1,0 +1,24 @@
+<div class="container">
+    <button class="btn btn-primary mb-2" (click)="show = !show">Add User</button>
+    <div class="formName" *ngIf="show">
+        <form [formGroup]="registrationForm" (ngSubmit)="submitRegistrationForm()">
+            <label>Enter Name</label>
+            <input type="text" class="form-control" [(ngModel)]="data.firstName" formControlName="name">
+            
+            <span class="text-danger"
+                *ngIf="(registrationForm.controls.name.touched || submitted) && registrationForm.controls.name.errors?.required">
+                Name is required
+            </span>
+
+          
+
+            <!-- <span class="text-danger"
+                *ngIf="(registrationForm.controls.name.touched || submitted) && registrationForm.controls.name.errors?.minlength">
+                minimum 6 character
+            </span> -->
+
+            <button class="btn btn-success mb-2">Add</button>
+        </form>
+    </div>
+    <div *ngFor="let data of arrayData" class="text-display"> {{data.firstName}}</div>
+</div>

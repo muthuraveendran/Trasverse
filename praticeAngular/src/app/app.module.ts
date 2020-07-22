@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/users/user.component';
@@ -9,6 +9,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { from } from 'rxjs';
 import { TemplateDrivenComponent } from './components/forms/template-driven/template-driven.component';
+import { ReactiveFormComponent } from './components/forms/reactive-form/reactive-form.component';
+import { PraticeFormComponent } from './components/forms/pratice-form/pratice-form.component';
+import { AppValidationComponent } from './components/forms/app-validation/app-validation.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +19,16 @@ import { TemplateDrivenComponent } from './components/forms/template-driven/temp
     UserComponent,
     PraticeComponentComponent,
     NavbarComponent,
-    TemplateDrivenComponent
+    TemplateDrivenComponent,
+    ReactiveFormComponent,
+    PraticeFormComponent,
+    AppValidationComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

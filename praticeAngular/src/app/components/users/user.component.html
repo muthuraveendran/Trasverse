@@ -1,5 +1,14 @@
-<!-- <p>Displaed in a New Page<p>,
+<div class="container">
+    <button class="btn btn-primary mb-2" (click)="enable = !enable" >Add User</button>
+   
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <div class="input-box" *ngIf="enable">
+        <label>Enter Name</label>
+        <input type="text" formControlName="name"  class="form-control" [(ngModel)] ="data.firstName">
+        <!-- {{data.firstName}} -->
+        <button class="btn btn-success mb2" (click) ="addData()" id="successbtn">Save</button>
+    </div>
+    </form>
+    <div *ngFor = "let user of pushNewData" class="data-enter" >{{user.firstName}}</div>
 
-    <p>Name is {{user.firstName}} {{user.lastName}}</p>
-
-    <p>Address is {{user.address.street}} {{user.address.district}} {{user.address.zipCode}}</p> -->
+</div>
