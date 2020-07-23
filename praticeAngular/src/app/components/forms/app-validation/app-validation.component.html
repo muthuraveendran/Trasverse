@@ -1,1 +1,10 @@
-<p>app-validation works!</p>
+<!-- <p>app-validation works!</p> -->
+
+{{submitted1}} >>>>>>>>>>>
+
+<div *ngIf= " ( control.touched  ||  submitted1)" class="text-danger">
+    <small *ngIf="control.errors?.required" class="form-text" >Required Field</small>
+    <small *ngIf="control.errors.minlength" class="form-text" >Password is to short</small>
+    <small *ngIf="control.errors.email" class="form-text" >Enter valid email address</small>
+
+</div>

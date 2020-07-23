@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-pratice-form',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PraticeFormComponent implements OnInit {
 
-  constructor() { }
+  registeredForm : FormGroup;
+  submitted: boolean =false
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.registeredForm = this.fb.group({
+      name:["",[Validators.required,Validators.minLength]]
+    })
+  }
+
+  formValidation(){
+    this.submitted = true;
   }
 
 }

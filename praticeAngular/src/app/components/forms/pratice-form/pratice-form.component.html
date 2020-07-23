@@ -1,1 +1,13 @@
-<p>pratice-form works!</p>
+<div class="form-container">
+
+    <form [formGroup]="registeredForm" (ngSubmit)="formValidation()">
+        <label>Enter Name</label>
+        <input type="text" class="form-control" formControlName="name">
+
+    <app-app-validation [control]="registeredForm.controls.name" [submitted1]="submitted"> </app-app-validation>
+<div class="submit">
+            <button class="btn btn-success mb-2">Submit</button>
+        </div>
+    </form>
+
+</div>

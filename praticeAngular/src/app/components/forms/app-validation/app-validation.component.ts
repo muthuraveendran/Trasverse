@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-app-validation',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppValidationComponent implements OnInit {
 
+  @Input() control;
+  @Input() submitted1;
   constructor() { }
 
   ngOnInit(): void {

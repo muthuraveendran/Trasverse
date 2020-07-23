@@ -1,0 +1,10 @@
+.form-container {
+    width: 500px;
+    position: relative;
+    left: 200px;
+}
+
+.submit {
+    position: relative;
+    top: 2px;
+}
