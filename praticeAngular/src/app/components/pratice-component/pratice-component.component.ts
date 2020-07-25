@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/module/user';
+import { DataService } from '../../service/data.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-pratice-component',
@@ -24,47 +26,28 @@ export class PraticeComponentComponent implements OnInit {
   showUserForm: boolean = false;
   @ViewChild('userForm') form : any;
 
-  constructor() {}
+  constructor( private dataService : DataService) {}
 
   ngOnInit(): void {
-    // setTimeout(()=>{
-    this.users = [
-      {
-        firstName: 'muthu',
-        lastName: 'rave',
-        email: 'muthurave@gmail.com',
-        age: 60,
-        balance: 5000,
-        registerd: new Date(),
-        hide: true,
-        // image:"//lorempixel.com/600/600/pepole/2"
-      },
-      {
-        firstName: 'rave',
-        lastName: 'muthu',
-        email: 'ravemuthu@gmail.com',
-        age: 50,
-        balance: 1000,
-        registerd: new Date(),
-        hide: true,
-      },
-    ];
+   
+      this.users =  this.dataService.getUsers();
+
     this.loaded = true;
     // },2000)
 
-    this.newData({
-      firstName: 'aj',
-      lastName: 'anand',
-      email: 'ajayanand@gmailcom',
-      age: 23,
-      balance: 1000,
-      hide: true,
-    });
+    // this.newData({
+    //   firstName: 'aj',
+    //   lastName: 'anand',
+    //   email: 'ajayanand@gmailcom',
+    //   age: 23,
+    //   balance: 1000,
+    //   hide: true,
+    // });
   }
 
-  newData(user: User) {
-    this.users.push(user);
-  }
+  // newData(user: User) {
+  //   this.users.push(user);
+  // }
 
   // addUser() {
   //   this.user.hide = true;
@@ -87,14 +70,15 @@ export class PraticeComponentComponent implements OnInit {
     user.hide = !user.hide;
     console.log('>>>>>>>>>>>>>>>>>>>useruseruser>>>>>>>>>>>', user.hide);
   }
-  onSubmit({value , valid} : {value: User, valid: boolean}){
+  onSubmit({value , valid} ){
     // if(!valid){
       console.log("Form is not vaasaaaaaaaaaaaaaaaaalid")
     // }
     // else{
       this.user.hide = true;
 
-      this.users.unshift(value);
+      // this.users.unshift(value);
+      this.dataService.addUser(value);
       this.form.reset();
     // }
   }

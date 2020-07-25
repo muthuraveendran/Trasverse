@@ -1,0 +1,10 @@
+
+<form [formGroup]="registeredForm" (ngSubmit)="add()">
+
+<div class="formgroup" >
+    <label>Enter Name</label>
+    <input type="text" class="form-control" formControlName="name"> 
+    <app-validation [control]="registeredForm.controls.name" [submit]="validate"></app-validation>
+</div>
+<button class="btn btn-success">Confirm</button>
+</form>

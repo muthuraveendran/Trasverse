@@ -12,6 +12,8 @@ import { TemplateDrivenComponent } from './components/forms/template-driven/temp
 import { ReactiveFormComponent } from './components/forms/reactive-form/reactive-form.component';
 import { PraticeFormComponent } from './components/forms/pratice-form/pratice-form.component';
 import { AppValidationComponent } from './components/forms/app-validation/app-validation.component';
+import { FormComponent } from './dummy/form/form.component';
+import { ValidationComponent } from './dummy/validation/validation.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { AppValidationComponent } from './components/forms/app-validation/app-va
     ReactiveFormComponent,
     PraticeFormComponent,
     AppValidationComponent,
+    FormComponent,
+    ValidationComponent,
   ],
   imports: [
     BrowserModule,
