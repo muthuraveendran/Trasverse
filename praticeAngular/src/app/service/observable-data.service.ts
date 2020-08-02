@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { User } from '../module/user';
-import { Observable , of } from 'rxjs';
+import { Observable , of, Observer } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class ObservableDataService {
 
-users: User[];
-data: Observable <any>;
+  users: User[];
+  data: Observable <any>;
 
   constructor() { 
+
 
     this.users = [
       {
@@ -36,6 +37,11 @@ data: Observable <any>;
     ];
   }
 
+
+  // getDummyData():Observable<any>{
+  //   // return of(this.newData);
+  // }
+
   getData(){
     this.data = new Observable( observer =>{
       setTimeout(()=>{
@@ -48,36 +54,23 @@ data: Observable <any>;
         observer.next(3);
       },3000);
       setTimeout(()=>{
-        observer.next({name:"muthu"});
+        observer.next(4);
       },4000);
     })
     return this.data;
   }
 
-  getUsers():Observable<User[]> { 
-    console.log(">>>>>>>>>>>>>>>fetching the data from the service >>>>>>>>>>>>>>>>>>>>>>>>>....");
-    return of(this.users);
-  }
-
+  // Normal 
   // getUsers():User[] { 
   //   console.log(">>>>>>>>>>>>>>>fetching the data from the service >>>>>>>>>>>>>>>>>>>>>>>>>....");
   //   return this.users;
   // }
 
-
-
-  addUser(user:User) {  
-    // this.user.hide = true;
-
-    this.users.unshift(user);
-    console.log("It is now unshifting the value>>>>>>>>>>>>>>>>>>>>>>>>>")
-  //   this.user = {
-  //     firstName: '',
-  //     lastName: '',
-  //     email: '',
-  //     age: null,
-  //     balance: null,
-  //   };
+  // Using Observable
+  getUsers():Observable<User[]> { 
+    console.log(">>>>>>>>>>>>>>>fetching the data from the service >>>>>>>>>>>>>>>>>>>>>>>>>....");
+    return of(this.users);
   }
 
+  
 }

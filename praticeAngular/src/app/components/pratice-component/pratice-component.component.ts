@@ -30,24 +30,31 @@ export class PraticeComponentComponent implements OnInit {
 
   ngOnInit(): void {
    
-      this.users =  this.dataService.getUsers();
+      // this.dataService.getUsers();
+      this.dataService.getUsers().subscribe(users =>{
+        this.users = users;
+        console.log(">>>>>>>>>>inside subscriber>>>>>>>>>>>>>>",this.users);
+  });
+      this.dataService.getData().subscribe(data =>{
+        console.log(">>>>>data>>>>>>>>>>>>>>>>>>>>", data);
+      })
 
     this.loaded = true;
     // },2000)
 
-    // this.newData({
-    //   firstName: 'aj',
-    //   lastName: 'anand',
-    //   email: 'ajayanand@gmailcom',
-    //   age: 23,
-    //   balance: 1000,
-    //   hide: true,
-    // });
+    this.newData({
+      firstName: 'aj',
+      lastName: 'anand',
+      email: 'ajayanand@gmailcom',
+      age: 23,
+      balance: 1000,
+      hide: true,
+    });
   }
 
-  // newData(user: User) {
-  //   this.users.push(user);
-  // }
+  newData(user: User) {
+    this.users.push(user);
+  }
 
   // addUser() {
   //   this.user.hide = true;
@@ -70,15 +77,14 @@ export class PraticeComponentComponent implements OnInit {
     user.hide = !user.hide;
     console.log('>>>>>>>>>>>>>>>>>>>useruseruser>>>>>>>>>>>', user.hide);
   }
-  onSubmit({value , valid} ){
+  onSubmit({value , valid} : {value: User, valid: boolean}){
     // if(!valid){
       console.log("Form is not vaasaaaaaaaaaaaaaaaaalid")
     // }
     // else{
       this.user.hide = true;
 
-      // this.users.unshift(value);
-      this.dataService.addUser(value);
+      this.users.unshift(value);
       this.form.reset();
     // }
   }

@@ -1,0 +1,21 @@
+<!-- <p>postform works!</p> -->
+<div class="card card-body" >
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text"   class="form-control" [(ngModel)]="currentPost.title"  #title> 
+        
+    </div>
+    <div class="form-group">
+        <label for="">Body</label>
+        <input type="text"  class="form-control" [(ngModel)]="currentPost.body" #body>
+        
+    </div>
+    <input type="hidden"  name="id" [(ngModel)]="currentPost.id">
+    
+    <button *ngIf="!isEdited" class="btn btn-primary mb-5" (click)="addPost(title.value , body.value)">Add</button>
+
+    <button *ngIf="isEdited" class="btn btn-warning mb-5" (click)="updatePost()">Update</button>
+
+
+
+</div>

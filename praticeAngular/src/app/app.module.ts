@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { UserComponent } from './components/users/user.component';
 import { PraticeComponentComponent } from './components/pratice-component/pratice-component.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -14,6 +15,9 @@ import { PraticeFormComponent } from './components/forms/pratice-form/pratice-fo
 import { AppValidationComponent } from './components/forms/app-validation/app-validation.component';
 import { FormComponent } from './dummy/form/form.component';
 import { ValidationComponent } from './dummy/validation/validation.component';
+import { PraticeObservableComponent } from './components/pratice-observable/pratice-observable.component';
+import { PostComponent } from './components/post/post.component';
+import { PostformComponent } from './components/postform/postform.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +31,16 @@ import { ValidationComponent } from './dummy/validation/validation.component';
     AppValidationComponent,
     FormComponent,
     ValidationComponent,
+    PraticeObservableComponent,
+    PostComponent,
+    PostformComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
