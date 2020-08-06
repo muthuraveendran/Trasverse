@@ -39,4 +39,10 @@ export class PostService {
 
     }
 
+    getPostById(id) : Observable<any> { 
+      const url = `${this.postUrl}/${id}`;
+      console.log("The url is >>>>>>>>>>>>>>>>>>>>>>.",url);
+      return this.http.get<any>(url);
+    }
+
 }

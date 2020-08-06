@@ -18,6 +18,9 @@ import { ValidationComponent } from './dummy/validation/validation.component';
 import { PraticeObservableComponent } from './components/pratice-observable/pratice-observable.component';
 import { PostComponent } from './components/post/post.component';
 import { PostformComponent } from './components/postform/postform.component';
+import { AppRoutingModule } from "./app-routing/app-routing.module";
+import { IdGenerateComponent } from './id-generate/id-generate.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +37,17 @@ import { PostformComponent } from './components/postform/postform.component';
     PraticeObservableComponent,
     PostComponent,
     PostformComponent,
+    IdGenerateComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
