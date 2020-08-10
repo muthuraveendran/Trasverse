@@ -1,0 +1,13 @@
+.long-date {
+    color: #777;
+}
+ 
+h3 {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+ul li :visited   {
+    background: red;
+    outline: 0;
+  }

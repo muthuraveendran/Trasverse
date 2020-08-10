@@ -1,0 +1,17 @@
+<ul class="list-group" >
+    <ul class="list-group" *ngFor="let data of logs" [class.list-group-item-secondary]="selectedLog === data">
+        <li class="list-group-item d-flex justify-content-between align-item-center">
+            <!-- {{data.text}} -->
+            <a (click)="onSelect(data)" href="#" >{{data.text}}</a>
+            <span class="long-date">{{data.date |  date:'dd-MMM-yyyy' }}  </span>
+            <i (click)="onDelete(data)" class="fa fa-remove"></i>
+        </li>
+    </ul>
+
+</ul>
+
+<!-- <div  *ngIf="logs.length == 0">
+    <h3>No Records Found</h3>
+</div> -->
+
+<!-- *ngIf="logs.length > 0" -->
