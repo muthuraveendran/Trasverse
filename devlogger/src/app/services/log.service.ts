@@ -23,13 +23,17 @@ export class LogService {
   ]
 
 
-  getlog(){
+  getlog() : Observable<any>{
     // return this.logs;
-    if(localStorage.getItem('logs') === null){
+    if(localStorage.getItem('logs')  === null){
+      console.log("Enter the value>>>>>>>>>>>>>>>..");
       this.logs = [];
+      // localStorage.setItem('logs',JSON.stringify(this.logs));
     } else {
      return this.logs = JSON.parse(localStorage.getItem('logs'));
     }
+
+    return of(this.logs);
   }
 
   setFormLog(log) {
@@ -52,7 +56,7 @@ export class LogService {
       }   
     })
     this.logs.unshift(update);
-    localStorage.setItem('logs',JSON.stringify(this.logs));
+ let data  = localStorage.setItem('logs',JSON.stringify(this.logs));
   }
 
   deleteLog(data){

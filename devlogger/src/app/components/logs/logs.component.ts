@@ -24,7 +24,9 @@ export class LogsComponent implements OnInit {
 
   ngOnInit(): void {
     {
-this.logs = this.logservice.getlog();      
+this.logservice.getlog().subscribe(logs =>{
+  this.logs =logs;
+});      
 this.logservice.stateClear.subscribe(clear =>{
   if(clear){
     this.selectedLog = {id:"",text:"", date:""}
